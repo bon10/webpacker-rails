@@ -62,3 +62,16 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'webpacker'
+gem 'rmagick'
+gem 'streamio-ffmpeg'
+gem 'fog-aws'
+gem 'aws-sdk-s3', require: false
+gem 'mini_magick'
+gem 'remotipart', github: 'mshibuya/remotipart', ref: '88d9a7d'
+gem "shrine", "~> 3.0"
+gem "image_processing", "~> 1.8"
+gem 'sidekiq'
+gem 'redis-namespace'
+gem "uppy-s3_multipart", "~> 0.3"
+gem "dotenv-rails"
+

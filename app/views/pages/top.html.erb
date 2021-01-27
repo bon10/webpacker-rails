@@ -1,2 +1,11 @@
 <h1>Pages#top</h1>
-<p>Find me in app/views/pages/top.html.erb</p>
+<p>test</p>
+<%= link_to "記事作成", new_post_path %>
+
+<h2>記事一覧</h2>
+
+<% @posts.each do |p| %>
+  <ul>
+    <li><%= link_to "#{p.id}: #{p.title}", edit_post_path(p) %></li>
+  </ul>
+<% end %>

@@ -1,4 +1,51 @@
-// 追記
+
 h1 {
-    color: red;
-  }
+  color: red;
+}
+
+#dummy_file{
+  display: none;
+}
+.content_text {
+  width: 480px;
+  border: 2px solid #ddd;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.content_textarea {
+  width: 480px;
+  border: 2px solid #ddd;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: #ddd;
+  z-index: 1;
+  z-index: 1;
+}
+
+/* For Uppy */
+.upload-preview img {
+  display: block;
+  max-width: 100%;
+}
+
+.upload-preview {
+  margin: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  height: 300px;
+}
+
+img[src=""] {
+  visibility: hidden;
+}
+/**************************/

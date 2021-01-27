@@ -6,7 +6,7 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-
+require('jquery')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -16,6 +16,20 @@
 // const imagePath = (name) => images(name, true)
 import 'stylesheets/application';
 import 'javascripts/application';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+import fileUpload from 'javascripts/fileUpload'
+
 require.context('../images', true, /\.(png|jpg|jpeg|svg)$/);
 
-console.log('Hello World from Webpacker');
+//console.log('Hello World from Webpacker');
+window.jQuery = $;
+window.$ = $;
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('input[type=file]').forEach(fileInput => {
+    fileUpload(fileInput)
+  })
+})

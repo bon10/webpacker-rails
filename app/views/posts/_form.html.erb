@@ -1,0 +1,45 @@
+<%= form_with(model: post, local: true, html: { enctype: "multipart/form-data" }) do |form| %>
+  <% form.fields_for :photos do |p| %>
+    <%= p.hidden_field :image, value: p.object.cached_image_data, class: "upload-data" %>
+    <%= p.file_field   :image, class: "upload-file" %>
+    <%= p.check_box    :_destroy unless p.object.new_record? %>
+  <% end %> 
+  </div>
+  <div class="form_margin_block">
+    <%= form.label :title %><br>
+    <%= form.text_field :title, id: "input-text", rows: 5, class: "form-control content_text" %>
+  </div>
+  <div class="form_margin_block">
+    <%= form.label :content %><br>
+    <%= form.text_area :content, id: "input-text", rows: 5, class: "form-control content_textarea" %>
+    <div class="supplement" id="counter"><%= post.content.present? ? post.content.length : 0 %>/160</div>
+  </div>
+  <div class="form-group">
+    <%= file_field_tag "files[]", multiple: true, id: "filebook" %>
+    <input id="dummy_file" type="text" readonly="readonly">
+    
+  </div>
+  <div class="center_block">
+    <%= form.submit "登録する", class: "btn spin_btn" %>
+  </div>
+<% end %>
+<!-- loading -->
+<div id="overlay">
+  <div class="cv-spinner">
+    <span class="spinner"></span>
+  </div>
+</div>
+<div class="upload-preview">
+アップロード済みファイル<br/>
+  <% @post.photos.each do |p| %>
+    <%= image_tag p.try(:image_url).to_s, height: "100px" %>
+  <% end %>
+</div>
+<script>
+  $(".spin_btn").on("click", function(){
+    $("#overlay").fadeIn(500); //二度押しを防ぐloading表示
+    setTimeout(function(){
+      $("#overlay").fadeOut(500);
+    },180000);
+  });
+</script>
